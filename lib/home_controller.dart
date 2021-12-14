@@ -51,4 +51,32 @@ class HomeController extends ChangeNotifier {
     this.carHotTemperature = value;
     notifyListeners();
   }
+
+  bool isShowTyre = false;
+
+  void showTyreController(int index) {
+    if (selectedBottomTab != 3 && index == 3) {
+      Future.delayed(Duration(milliseconds: 400), () {
+        this.isShowTyre = true;
+        notifyListeners();
+      });
+    } else {
+      this.isShowTyre = false;
+      notifyListeners();
+    }
+  }
+
+  bool isShowTyreStatus = false;
+
+  void tyreStatusController(int index) {
+    if (this.selectedBottomTab != 3 && index == 3) {
+      this.isShowTyreStatus = true;
+      notifyListeners();
+    } else {
+      Future.delayed(Duration(milliseconds: 800), () {
+        this.isShowTyreStatus = false;
+        notifyListeners();
+      });
+    }
+  }
 }
